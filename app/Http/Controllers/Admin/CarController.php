@@ -31,7 +31,7 @@ class CarController extends Controller
     public function index()
     {
         $cars = Car::latest()->paginate(5);
-        return view('admin.cars.index',compact('cars'))
+        return view('admin.car.index',compact('cars'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -42,7 +42,7 @@ class CarController extends Controller
      */
     public function create()
     {
-        return view('admin.cars.create');
+        return view('admin.car.create');
     }
 
     /**
@@ -54,7 +54,7 @@ class CarController extends Controller
     public function store(StoreRequest $request)
     {
         Car::create($request->all());
-        return redirect()->route('admin.cars.index')
+        return redirect()->route('admin.car.index')
             ->with('success','Admin created successfully.');
     }
 
@@ -66,7 +66,7 @@ class CarController extends Controller
      */
     public function show(Car $car)
     {
-        return view('admin.cars.show',compact('car'));
+        return view('admin.car.show',compact('car'));
     }
 
     /**
@@ -77,7 +77,7 @@ class CarController extends Controller
      */
     public function edit(Car $car)
     {
-        return view('admin.cars.edit',compact('car'));
+        return view('admin.car.edit',compact('car'));
     }
 
     /**
@@ -90,7 +90,7 @@ class CarController extends Controller
     public function update(UpdateRequest $request, Car $car)
     {
         $car->update($request->all());
-        return redirect()->route('admin.cars.index')
+        return redirect()->route('admin.car.index')
             ->with('success','Car updated successfully');
     }
 
@@ -103,7 +103,7 @@ class CarController extends Controller
     public function destroy(Car $car)
     {
         $car->delete();
-        return redirect()->route('admin.cars.index')
+        return redirect()->route('admin.car.index')
             ->with('success','Car deleted successfully');
     }
 }
