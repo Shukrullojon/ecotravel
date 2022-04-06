@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Car;
+namespace App\Http\Requests\Admin\Gallery;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,12 +24,9 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name_uz' => 'required',
-            'name_ru' => 'required',
-            'phone' => 'required',
-            'fio' => 'required',
-            'chairs' => 'required',
-            'status' => 'required',
+            'name' => 'required',
+            'image' => 'required',
+            'status' => 'required|integer',
         ];
     }
 }

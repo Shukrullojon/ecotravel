@@ -9,75 +9,135 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300' rel='stylesheet' type='text/css'>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('template/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('template/css/font-awesome.css')}}">
+    <link rel="stylesheet" href="{{ asset('template/css/animate.css')}}">
+    <link rel="stylesheet" href="{{ asset('template/css/templatemo_misc.css')}}">
+    <link rel="stylesheet" href="{{ asset('template/css/templatemo_style.css')}}">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <!--[if lt IE 7]>
+    <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+    <![endif]-->
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+    <div class="site-header">
+        <div class="container">
+            <div class="main-header">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-xs-10">
+                        <div class="logo">
+                            <a href="{{ route("welcome") }}">
+                                <img src="{{ asset('template/images/logo.png')}}" alt="travel html5 template" title="travel html5 template">
+                            </a>
+                        </div> <!-- /.logo -->
+                    </div> <!-- /.col-md-4 -->
+                    <div class="col-md-8 col-sm-6 col-xs-2">
+                        <div class="main-menu">
+                            <ul class="visible-lg visible-md">
+                                <li><a href="{{ route("service") }}">Tours</a></li>
+                                <li><a href="{{ route("gallery") }}">Gallery</a></li>
+                                <li><a href="{{ route("about") }}">Biz haqimizda</a></li>
+                                <li><a href="{{ route("contact") }}">Aloqa</a></li>
+                            </ul>
+                            <a href="#" class="toggle-menu visible-sm visible-xs">
+                                <i class="fa fa-bars"></i>
+                            </a>
+                        </div> <!-- /.main-menu -->
+                    </div> <!-- /.col-md-8 -->
+                </div> <!-- /.row -->
+            </div> <!-- /.main-header -->
+            <div class="row">
+                <div class="col-md-12 visible-sm visible-xs">
+                    <div class="menu-responsive">
+                        <ul>
+                            <li class="active"><a href="index.html">Home</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="events.html">Events</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div> <!-- /.menu-responsive -->
+                </div> <!-- /.col-md-12 -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /.site-header -->
 
-                    </ul>
+    @yield('content')
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
+    <div class="partner-list">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="partner-item">
+                        <img src="{{ asset('template/images/partners/partner1.png')}}" alt="">
+                    </div> <!-- /.partner-item -->
+                </div> <!-- /.col-md-2 -->
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="partner-item">
+                        <img src="{{ asset('template/images/partners/partner2.png')}}" alt="">
+                    </div> <!-- /.partner-item -->
+                </div> <!-- /.col-md-2 -->
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="partner-item">
+                        <img src="{{ asset('template/images/partners/partner3.png')}}" alt="">
+                    </div> <!-- /.partner-item -->
+                </div> <!-- /.col-md-2 -->
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="partner-item">
+                        <img src="{{ asset('template/images/partners/partner1.png')}}" alt="">
+                    </div> <!-- /.partner-item -->
+                </div> <!-- /.col-md-2 -->
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="partner-item">
+                        <img src="{{ asset('template/images/partners/partner2.png')}}" alt="">
+                    </div> <!-- /.partner-item -->
+                </div> <!-- /.col-md-2 -->
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="partner-item last">
+                        <img src="{{ asset('template/images/partners/partner3.png')}}" alt="">
+                    </div> <!-- /.partner-item -->
+                </div> <!-- /.col-md-2 -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /.partner-list -->
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
+    <div class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-4">
+                    <div class="footer-logo">
+                        <a href="index.html">
+                            <img src="{{ asset('template/images/logo.png')}}" alt="">
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </nav>
+                <div class="col-md-4 col-sm-4">
+                    <div class="copyright">
+                            <span>
+                                Copyright &copy; 2014 <a href="#">Company Name</a>
+                            </span>
+                    </div>
+                </div> <!-- /.col-md-4 -->
+                <div class="col-md-4 col-sm-4">
+                    <ul class="social-icons">
+                        <li><a href="#" class="fa fa-facebook"></a></li>
+                        <li><a href="#" class="fa fa-twitter"></a></li>
+                        <li><a href="#" class="fa fa-linkedin"></a></li>
+                        <li><a href="#" class="fa fa-flickr"></a></li>
+                        <li><a href="#" class="fa fa-rss"></a></li>
+                    </ul>
+                </div> <!-- /.col-md-4 -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /.site-footer -->
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+<script src="{{ asset('template/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js')}}"></script>
+<script src="{{ asset('template/js/vendor/jquery-1.11.0.min.js')}}"></script>
+<script>window.jQuery || document.write('<script src="{{ asset('template/js/vendor/jquery-1.11.0.min.js')}}"><\/script>')</script>
+<script src="{{ asset('template/js/bootstrap.js')}}"></script>
+<script src="{{ asset('template/js/plugins.js')}}"></script>
+<script src="{{ asset('template/js/main.js')}}"></script>
 </body>
 </html>
